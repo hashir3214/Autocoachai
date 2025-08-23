@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCoach AI ✨ - Your Magical Study Companion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Magic Background -->
+        <div class="magic-bg">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+        </div>
+
+        <!-- Header with Glassmorphism -->
+        <header class="glass-header">
+            <div class="header-content">
+                <div class="brand-section">
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="brand-text">
+                            <h1 class="brand-title">AutoCoach AI</h1>
+                            <p class="brand-subtitle">✨ Your Magical Study Companion</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mode-selector-container">
+                    <label for="studyMode" class="mode-label">
+                        <i class="fas fa-magic"></i>
+                        Study Mode
+                    </label>
+                    <select id="studyMode" class="magic-select">
+                        <option value="Explain Concept">🧠 Explain Concept</option>
+                        <option value="Homework Helper">📚 Homework Helper</option>
+                        <option value="Practice Quiz">🎯 Practice Quiz</option>
+                        <option value="Creative Thinking">🚀 Creative Thinking</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Container with Enhanced Design -->
+        <main class="chat-container" id="chatContainer">
+            <div class="welcome-section">
+                <div class="welcome-card">
+                    <div class="welcome-avatar">
+                        <div class="avatar-ring">
+                            <div class="avatar-inner">
+                                <i class="fas fa-sparkles"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="welcome-content">
+                        <h2 class="welcome-title">
+                            Hey there, brilliant student! 🌟
+                        </h2>
+                        <p class="welcome-message">
+                            I'm AutoCoach AI, and I'm absolutely thrilled to be your study companion! 
+                            I'm here to make learning fun, engaging, and totally achievable. 
+                        </p>
+                        <div class="feature-cards">
+                            <div class="feature-card">
+                                <div class="feature-icon">🧠</div>
+                                <div class="feature-text">
+                                    <strong>Explain Concepts</strong>
+                                    <span>Crystal-clear explanations that just click!</span>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📚</div>
+                                <div class="feature-text">
+                                    <strong>Homework Helper</strong>
+                                    <span>Gentle guidance to help you shine!</span>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🎯</div>
+                                <div class="feature-text">
+                                    <strong>Practice Quiz</strong>
+                                    <span>Fun challenges to test your awesome knowledge!</span>
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🚀</div>
+                                <div class="feature-text">
+                                    <strong>Creative Thinking</strong>
+                                    <span>Unlock your incredible creative potential!</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="welcome-cta">
+                            What amazing thing would you like to learn today? I can't wait to help you succeed! ✨
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Enhanced Input Area -->
+        <footer class="input-section">
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <div class="input-group-enhanced">
+                        <div class="input-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <input type="text" 
+                               id="messageInput" 
+                               class="magic-input" 
+                               placeholder="Ask me anything... I'm here to help you shine! ✨" 
+                               maxlength="1000">
+                        <button class="magic-send-btn" type="button" id="sendButton">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="input-hints">
+                        <span class="hint-item">
+                            <i class="fas fa-keyboard"></i>
+                            Press Enter to send
+                        </span>
+                        <span class="hint-divider">•</span>
+                        <span class="hint-item">
+                            <i class="fas fa-lightbulb"></i>
+                            Be specific for magical results
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Enhanced Loading Animation -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="magic-loader">
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+                <div class="loader-ring"></div>
+                <div class="loader-center">
+                    <i class="fas fa-sparkles"></i>
+                </div>
+            </div>
+            <p class="loading-text">Your AI study buddy is working some magic... ✨</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='local-storage.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
